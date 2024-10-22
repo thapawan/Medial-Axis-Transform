@@ -1,6 +1,6 @@
-# Modified-Medial-Axis-Transform
+# Medial-Axis-Transform
 
-It will include Google Earth Engine Script, Apps, and dataset to find river width and centerline.
+It will include script and dataset to find river width and centerline.
 
 The cross-section extraction visualization tool automates extracting cross-sections with their horizontal distance and elevation. The repository contains notebooks and ArcGIS Pro Tool for cross-section extraction and visualization.
 
