@@ -1,11 +1,10 @@
 # Medial-Axis-Transform
 
-It will include script and dataset to find river width and centerline.
-
-The cross-section extraction visualization tool automates extracting cross-sections with their horizontal distance and elevation. The repository contains notebooks and ArcGIS Pro Tool for cross-section extraction and visualization.
+It will include script and dataset to find river width and centerline from Sential 1A image using deep learning model DeepLabV3.
+The repository contains a notebook to extract river centerline and width with sample data and results.
 
 ## Installation of required packages
-For jupyter and ArcGIS Pro notebook use this command: install required libraries if not installed by uncommenting it:
+For jupyter notebook, ArcGIS Pro and Google Colab notebook use this command: install required libraries if not installed by uncommenting it:
 
 #!pip install geopandas
 
@@ -15,12 +14,14 @@ For jupyter and ArcGIS Pro notebook use this command: install required libraries
 
 #!pip install rasterio
 
-#!pip install matplotlib
+#!pip install skimage
 
-Other options, installing it by using the package manager in ArcGIS Pro, to add necessary packages to operate this program such as rasterio, geopandas, numpy, pandas, and matplotlib.
+#!pip install shapely
+
+Other options, installing it by using the package manager in ArcGIS Pro, to add necessary packages to operate this program such as rasterio, geopandas, numpy, pandas, and skiimage.
 
 ## Usage Guide
-The easiest and quickest way to use the cross-section extraction visualization tool is to run it from ArcPro Toolboxes, where the functions can be directly loaded without setup. The tutorial for using the tool is shared on my YouTube channel (learnsomethingtoday): https://youtu.be/J0KKxBf-vLI
+The easiest and quickest way to use the Medial Axis Transform is to run it from Jupyter notebook or Google Colab, where the functions can be directly loaded without setup. The tutorial for using the tool is shared on my YouTube channel (learnsomethingtoday): https://youtu.be/J0KKxBf-vLI
 
 ### Example usage
 extract_and_visualize_cross_sections('Data\Shapefiles\Cross sections.shp', 'Data\DEM.tif', n_points=3, csv_output_dir='Samples', png_output_dir='Samples')
@@ -63,8 +64,7 @@ The code is an ArcGIS Python Toolbox that is designed to be used within ArcGIS P
 
 
 ## Acknowledgement
-I acknowledge the 
-YouTube video made by the GeoDev Tools channel for the video of the crosssection extractor and the valuable feedback (Dr. Lisa Davis), (Dr. Matthew LeFavor) and (Dr. Amobichukwu Amanambu ), also for other direct and indirect contributions to build and implement this tool.
+I acknowledge the YouTube video made by the GeoDev Tools channel for the video of the crosssection extractor and the valuable feedback (Dr. Lisa Davis), (Dr. Matthew LeFavor) and (Dr. Amobichukwu Amanambu ), also for other direct and indirect contributions to build and implement this tool.
 
 Dong, P., Zhong, R., Xia, J., & Tan, S. (2020). A semi-automated method for extracting channels and channel profiles from lidar-derived digital elevation models. Geosphere, 16(3), 806-816.
 
@@ -73,4 +73,4 @@ Open for collaboration and welcome any valuable feedback or suggestions for impr
 pthapa2@crimson.ua.edu.
 
 ## Future work
-Currently, it provides CSVs and PNG files further extension is available in the GitHub repository with the folder name of CrossSectionsExtractionVisualizationExtension which tool tries to convert point to line which has shapefile (.shp), raster (.tif) and save it in the ArcGIS Pro content.
+Currently, it provides CSVs and raster (.tif) files further extension is available in the GitHub repository with the folder name of Modified Medial Axis Transform (MMAT).
