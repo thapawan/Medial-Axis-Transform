@@ -4,7 +4,7 @@ It will include script and dataset to find river width and centerline from Senti
 The repository contains a notebook to extract river centerline and width with sample data and results.
 
 ## Installation of required packages
-For jupyter notebook, ArcGIS Pro and Google Colab notebook use this command: install required libraries if not installed by uncommenting it:
+For Jupyter notebook, ArcGIS Pro and Google Colab notebook use this command: install required libraries if not installed by uncommenting it:
 
 #!pip install geopandas
 
