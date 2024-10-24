@@ -27,50 +27,49 @@ The easiest and quickest way to use the Medial Axis Transform is to run it from 
 extract_and_visualize_cross_sections('Data\Shapefiles\Cross sections.shp', 'Data\DEM.tif', n_points=3, csv_output_dir='Samples', png_output_dir='Samples')
 
 ### Explanation
-The code is an ArcGIS Python Toolbox that is designed to be used within ArcGIS Pro. It is a custom geoprocessing tool that performs the following tasks:
+The code performs the following tasks:
 
-1. Takes input parameters:
-   - Cross Sections Shapefile (a shapefile containing cross-sectional lines)
-   - Digital Elevation Model (DEM) Raster (a raster dataset representing elevation data)
-   - Number of points
-   - CSV Output Directory (a directory for saving CSV files)
-   - PNG Output Directory (a directory for saving PNG images)
+1. **Importing Libraries**:
+   - The code imports several libraries necessary for image processing, geometric operations, and data handling, including `numpy`, `pandas`, `rasterio`, `skimage`, `shapely`, and `geopandas`.
 
-2. Loads the cross-sectional lines from the provided shapefile as a GeoDataFrame using the `geopandas` library.
+2. **Loading the Image**:
+   - The image is loaded using `rasterio.open`, which reads the image file (`images/Extract_P1.tif`) and extracts the first band of the image into the variable `img`. The transformation matrix of the image is also stored.
 
-3. Iterates through each cross-sectional line in the GeoDataFrame and performs the following operations for each:
+3. **Labeling the Image**:
+   - The `label` function from `skimage.measure` is used to label connected regions in the image. Each connected region is assigned a unique label.
 
-   a. Extracts the starting and ending coordinates of the line.
+4. **Preparing Data Structures**:
+   - Several lists are initialized to store the results: `centerline_data` for centerline geometries, `width_data` for widths, and `centerlines` for geometries to be rasterized.
 
-   b. Divide the line into a specified number of points (default: 5) and calculate the latitude and longitude of these points.
+5. **Processing Each Region**:
+   - The code iterates over each labeled region using `regionprops`.
+   - For each region, the medial axis (skeleton) is computed using `medial_axis`, which also returns the distance transform.
+   - The centerline of the region is computed as a `LineString` using `shapely.geometry.LineString`.
+   - The maximum width along the centerline is calculated from the distance transform.
+   - The centerline and width data are appended to their respective lists.
+   - The centerline geometry is also added to the list for rasterization.
 
-   c. Create a Pandas DataFrame containing latitude and longitude data.
+6. **Creating DataFrames**:
+   - Two DataFrames are created from the lists: `df_centerline` for centerlines and `df_width` for widths.
 
-   d. Converts the DataFrame to a GeoDataFrame, specifying the coordinate reference system (CRS).
+7. **Converting to GeoDataFrame**:
+   - The `df_centerline` DataFrame is converted to a GeoDataFrame `gdf_centerline` using `geopandas.GeoDataFrame`, with the centerline geometries.
+   - The coordinate reference system (CRS) is set to EPSG:4326 (WGS 84), which can be replaced with the appropriate EPSG code if known.
 
-   e. Calculates the horizontal distance (h_distance) for each point from the starting point of the line.
+8. **Saving to CSV**:
+   - The GeoDataFrame and DataFrame are saved to CSV files (`centerlines.csv` and `widths.csv`).
 
-   f. Extract elevation data for each point from the DEM raster using `rasterio`.
+9. **Rasterizing Centerlines**:
+   - The centerlines are rasterized using `rasterio.features.rasterize`, creating a raster image of the centerlines with the same shape and transformation as the original image.
 
-   g. Extracts h_distance and elevation columns from the GeoDataFrame and stores them in a Pandas DataFrame.
-
-   h. Saves the extracted data as a CSV file in the specified CSV output directory.
-
-   i. Generates a plot of the cross-sectional profile, with h_distance on the x-axis and elevation on the y-axis, and saves it as a PNG image in the specified PNG output directory.
-
-4. If any errors occur during the execution of the tool, it reports the error message.
-
-5. The `postExecute` method is called after the tool has been executed, but in this case, it does not perform any additional actions.
-
+This code effectively processes an image to extract and analyze the centerlines and widths of labeled regions, saving the results in both vector (CSV) and raster formats. 
 
 ## Acknowledgement
-I acknowledge the YouTube video made by the GeoDev Tools channel for the video of the crosssection extractor and the valuable feedback (Dr. Lisa Davis), (Dr. Matthew LeFavor) and (Dr. Amobichukwu Amanambu ), also for other direct and indirect contributions to build and implement this tool.
-
-Dong, P., Zhong, R., Xia, J., & Tan, S. (2020). A semi-automated method for extracting channels and channel profiles from lidar-derived digital elevation models. Geosphere, 16(3), 806-816.
+I want to express our gratitude to the developers and contributors of the Medial Axis Transform and our script, dataset, tutorial, and example, which are hosted on GitHub at https://github.com/thapawan/Medial-Axis-Transform/tree/main. Additionally, we acknowledge the provision of the HYDRoSWOT data, accessible via https://www.arcgis.com/apps/dashboards/4b8f2ba307684cf597617bf1b6d2f85d. Finally, we are thankful to the GitHub repository https://github.com/briannapagan/get_river_width for its code and resources, which have significantly contributed to our research.
 
 ## Contact
 Open for collaboration and welcome any valuable feedback or suggestions for improvement. If you have any queries about the algorithm, open for discussion and contact:
 pthapa2@crimson.ua.edu.
 
 ## Future work
-Currently, it provides CSVs and raster (.tif) files further extension is available in the GitHub repository with the folder name of Modified Medial Axis Transform (MMAT).
+Currently, it provides CSVs and raster (.tif) files. A further extension is available in the GitHub repository with the folder name of Modified Medial Axis Transform (MMAT).
