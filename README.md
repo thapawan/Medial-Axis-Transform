@@ -21,7 +21,7 @@ For Jupyter notebook, ArcGIS Pro and Google Colab notebook use this command: ins
 Other options, installing it by using the package manager in ArcGIS Pro, to add necessary packages to operate this program such as rasterio, geopandas, numpy, pandas, and skiimage.
 
 ## Usage Guide
-The easiest and quickest way to use the Medial Axis Transform is to run it from Jupyter notebook or Google Colab, where the functions can be directly loaded without setup. The tutorial for using the tool is shared on my YouTube channel (learnsomethingtoday): https://youtu.be/J0KKxBf-vLI
+The easiest and quickest way to use the Medial Axis Transform is to run it from Jupyter notebook or Google Colab, where the functions can be directly loaded without setup. The tutorial for using the tool is shared on my YouTube channel (learnsomethingtoday): [https://youtu.be/J0KKxBf-vLI](https://youtu.be/POs02W3LgS8)
 
 ### Explanation
 The code performs the following tasks:
