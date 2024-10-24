@@ -64,7 +64,7 @@ The code is an ArcGIS Python Toolbox that is designed to be used within ArcGIS P
 
 ## Acknowledgement
 I acknowledge the 
-YouTube video made by the GeoDev Tools channel for the video of the crosssection extractor and the valuable feedback (Dr. Lisa Davis) and advisor (Dr. Amobichukwu Amanambu ), also for other direct and indirect contributions to build and implement this tool.
+YouTube video made by the GeoDev Tools channel for the video of the crosssection extractor and the valuable feedback (Dr. Lisa Davis), (Dr. Matthew LeFavor) and (Dr. Amobichukwu Amanambu ), also for other direct and indirect contributions to build and implement this tool.
 
 Dong, P., Zhong, R., Xia, J., & Tan, S. (2020). A semi-automated method for extracting channels and channel profiles from lidar-derived digital elevation models. Geosphere, 16(3), 806-816.
 
