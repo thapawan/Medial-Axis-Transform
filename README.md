@@ -23,9 +23,6 @@ Other options, installing it by using the package manager in ArcGIS Pro, to add 
 ## Usage Guide
 The easiest and quickest way to use the Medial Axis Transform is to run it from Jupyter notebook or Google Colab, where the functions can be directly loaded without setup. The tutorial for using the tool is shared on my YouTube channel (learnsomethingtoday): https://youtu.be/J0KKxBf-vLI
 
-### Example usage
-extract_and_visualize_cross_sections('Data\Shapefiles\Cross sections.shp', 'Data\DEM.tif', n_points=3, csv_output_dir='Samples', png_output_dir='Samples')
-
 ### Explanation
 The code performs the following tasks:
 
