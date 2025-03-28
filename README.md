@@ -1,6 +1,6 @@
 # Medial-Axis-Transform
 
-It will include script and dataset to find river width and centerline from Sential 1A image using deep learning model DeepLabV3.
+It will include script and dataset to find river width and centerline from Sentinal 1A image using deep learning model DeepLabV3.
 The repository contains a notebook to extract river centerline and width with sample data and results.
 
 ## Installation of required packages
