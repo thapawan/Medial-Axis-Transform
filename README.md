@@ -64,6 +64,9 @@ This code effectively processes an image to extract and analyze the centerlines 
 ## Acknowledgement
 I want to express our gratitude to the developers and contributors of the Medial Axis Transform and our script, dataset, tutorial, and example, which are hosted on GitHub at https://github.com/thapawan/Medial-Axis-Transform/tree/main. Additionally, we acknowledge the provision of the HYDRoSWOT data, accessible via https://www.arcgis.com/apps/dashboards/4b8f2ba307684cf597617bf1b6d2f85d. Finally, we are thankful to the GitHub repository https://github.com/briannapagan/get_river_width for its code and resources, which have significantly contributed to our research.
 
+## Cite
+THAPA P., Davis, L., Amanambu, A., LaFevor, M., Frame, J. (2025). Enhanced river planform analysis using deep learning and medial axis transform with Sentinel 1A imagery. Earth Surface Processes & Landforms 50: e7015B, https://doi.org/10.1002/esp.70158
+
 ## Contact
 Open for collaboration and welcome any valuable feedback or suggestions for improvement. If you have any queries about the algorithm, open for discussion and contact:
 pthapa2@crimson.ua.edu.
